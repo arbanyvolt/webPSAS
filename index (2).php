@@ -10,7 +10,7 @@ require_once 'data.php';
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="CSS/style.css" />
 </head>
 <body>
 
@@ -238,6 +238,6 @@ require_once 'data.php';
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="JS/script.js"></script>
 </body>
 </html>
