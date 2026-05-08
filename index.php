@@ -169,7 +169,7 @@ if (!$conn) {
 <?php endif; ?>
 </section>
 
-<!-- FOOTER (BIAR GA ILANG LAGI 😭) -->
+<!-- FOOTER -->
 <footer>
   <a href="#" class="footer-logo">Chroclock</a>
   <p class="footer-copy">© 2024 Chroclock. All rights reserved.</p>
@@ -180,7 +180,7 @@ if (!$conn) {
   </div>
 </footer>
 
-<script src="webPSAS/script (1).js"></script>
+<script src="JS/script.js"></script>
 
 </body>
 </html>
