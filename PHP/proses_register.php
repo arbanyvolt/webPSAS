@@ -10,10 +10,10 @@ $password = $_POST['password'];
 mysqli_query($conn, "INSERT INTO users (name, email, password)
 VALUES ('$nama', '$email', '$password')");
 
-// simpan ke session (auto login)
-$_SESSION['nama'] = $nama;
+// auto login
+$_SESSION['user'] = $nama;
 
-// pindah ke dashboard
-header("Location: dashboard.php");
+// redirect ke index terbaru
+header("Location: Web.php");
 exit;
 ?>
