@@ -21,9 +21,13 @@ $redirect = isset($_GET['redirect']) ? $_GET['redirect'] : 'Web.php';
     <main class="login-wrapper">
         <h1 class="login-title">LOGIN</h1>
         <p class="login-subtitle">silakan masukkan detail akun anda</p>
+        
+        <?php if(isset($_GET['status']) && $_GET['status'] == 'registered'): ?>
+            <p style="color: #27ae60; font-size: 0.9rem; text-align: center; margin-bottom: 15px;">Registrasi berhasil! Silakan login.</p>
+        <?php endif; ?>
 
         <form method="POST" action="proses_login.php">
-            <input type="hidden" name="redirect" value="<?= $redirect; ?>">
+            <input type="hidden" name="redirect" value="<?= htmlspecialchars($redirect); ?>">
 
             <div class="input-group">
                 <label>email</label>
@@ -40,7 +44,7 @@ $redirect = isset($_GET['redirect']) ? $_GET['redirect'] : 'Web.php';
         </form>
 
         <p class="footer-text">
-            Belum punya akun? <a href="register.php">Register.</a>
+            Belum punya akun? <a href="register.php?redirect=<?= urlencode($redirect); ?>">Register.</a>
         </p>
     </main>
 

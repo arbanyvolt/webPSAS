@@ -1,11 +1,5 @@
 <?php
-session_start();
-
-$conn = mysqli_connect("localhost", "root", "", "jamtangan_store");
-
-if (!$conn) {
-    die("Koneksi gagal: " . mysqli_connect_error());
-}
+include 'koneksi.php';
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +16,9 @@ if (!$conn) {
 
   <!-- SESUAIKAN PATH -->
   <link rel="stylesheet" href="../CSS/Web.css" />
+
+  <!-- Midtrans Snap -->
+  <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="Mid-client-evN0MUz8X2Fx-VhC"></script>
 </head>
 
 <body>
@@ -49,12 +46,6 @@ if (!$conn) {
         <a href="#about">About</a>
         <a href="#collection">Collection</a>
         <a href="#history">History</a>
-
-        <?php if(isset($_SESSION['user'])): ?>
-          <a href="logout.php">Logout</a>
-        <?php else: ?>
-          <a href="login.php?redirect=Web.php">Login</a>
-        <?php endif; ?>
       </nav>
 
       <div class="header-actions">
@@ -63,12 +54,25 @@ if (!$conn) {
           ID / EN
         </button>
 
-        <button class="icon-btn" id="themeToggle">
-          🌙
+        <button class="icon-btn" id="themeToggle" aria-label="Switch theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         </button>
 
-        <button class="icon-btn" id="openCartBtn">
-          🛒
+        <?php if(isset($_SESSION['user'])): ?>
+          <div class="user-info">
+            <span><?= $_SESSION['user'] ?></span>
+            <a href="logout.php" class="icon-btn" title="Logout" aria-label="Logout">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            </a>
+          </div>
+        <?php else: ?>
+          <a href="login.php?redirect=../HTML/web.html" class="icon-btn" title="Login" aria-label="Login">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          </a>
+        <?php endif; ?>
+
+        <button class="icon-btn" id="openCartBtn" aria-label="Open cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
         </button>
 
       </div>
@@ -234,6 +238,11 @@ if (!$conn) {
               Rp <?= number_format($p['harga'],0,',','.'); ?>
             </div>
 
+            <div class="product-actions" style="margin-top: 15px; display: flex; gap: 10px;">
+              <button class="btn btn-primary" onclick="addToCart('<?= $p['id_produk']; ?>')" style="flex: 1;">Tambah ke cart</button>
+              <button class="btn btn-secondary" onclick="openCart()">Checkout</button>
+            </div>
+
           </div>
 
           <?php } ?>
@@ -336,6 +345,35 @@ if (!$conn) {
 
   </main>
 
+  <!-- CART MODAL -->
+  <div class="modal" id="cartModal" aria-hidden="true">
+    <div class="modal-panel">
+      <button class="icon-btn modal-close" id="closeCartBtn" aria-label="Close cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+      </button>
+      <div class="checkout-shell">
+        <div class="panel">
+          <div class="eyebrow" data-i18n="checkout.eyebrow">Pilihan Anda</div>
+          <h2 data-i18n="checkout.title">Cart & checkout</h2>
+          <div class="cart-list" id="cartList"></div>
+        </div>
+        <div class="panel">
+          <div class="eyebrow" data-i18n="checkout.formEyebrow">Pemesanan concierge</div>
+          <h2 data-i18n="checkout.formTitle">Lengkapi detail, kami yang akan menyusun sisanya.</h2>
+          <p style="color:var(--color-text-muted);margin-top:var(--space-3)" data-i18n="checkout.formLead">Tuliskan nama dan cara kami menghubungi Anda.</p>
+          <div id="summaryBox"></div>
+          <form class="checkout-form" id="checkoutForm">
+            <div class="field"><label for="name" data-i18n="form.name">Nama lengkap</label><input id="name" name="name" required></div>
+            <div class="field"><label for="email" data-i18n="form.email">Email</label><input id="email" name="email" type="email" required></div>
+            <div class="field"><label for="phone" data-i18n="form.phone">No. telepon / WhatsApp</label><input id="phone" name="phone" required></div>
+            <div class="field"><label for="address" data-i18n="form.address">Catatan pengiriman</label><textarea id="address" name="address"></textarea></div>
+            <button class="btn btn-primary" type="submit" data-i18n="checkout.submit">Bayar Sekarang</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer class="footer">
 
@@ -381,6 +419,26 @@ if (!$conn) {
     WhatsApp
 
   </a>
+
+  <!-- DATA PRODUK UNTUK JS -->
+  <?php
+  include 'koneksi.php';
+  $produkData = mysqli_query($conn, "SELECT * FROM produk");
+  $productsArray = [];
+  while ($row = mysqli_fetch_assoc($produkData)) {
+      $productsArray[] = [
+          'id' => $row['id_produk'],
+          'name' => $row['nama'],
+          'price' => (int)$row['harga'],
+          'edition' => $row['tag'] ?? 'Limited Edition',
+          'image' => 'IMG/' . $row['gambar'],
+          'desc' => ['id' => $row['deskripsi'], 'en' => $row['deskripsi']]
+      ];
+  }
+  ?>
+  <script>
+    var products = <?= json_encode($productsArray) ?>;
+  </script>
 
   <!-- SESUAIKAN PATH -->
   <script src="../JS/web.js" defer></script>

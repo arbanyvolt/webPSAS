@@ -1,3 +1,6 @@
+<?php
+$redirect = isset($_GET['redirect']) ? $_GET['redirect'] : 'Web.php';
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -19,6 +22,7 @@
         <p class="login-subtitle">daftarkan diri anda</p>
 
         <form method="POST" action="proses_register.php">
+            <input type="hidden" name="redirect" value="<?= htmlspecialchars($redirect); ?>">
             <div class="input-group">
                 <label>USERNAME</label>
                 <input type="text" name="username" placeholder="masukkan username" required>
@@ -43,7 +47,7 @@
         </form>
 
         <p class="footer-text">
-            sudah punya akun? <a href="login.php">Masuk</a>
+            sudah punya akun? <a href="login.php?redirect=<?= urlencode($redirect); ?>">Masuk</a>
         </p>
     </main>
 
