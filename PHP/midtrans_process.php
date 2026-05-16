@@ -3,10 +3,11 @@ header('Content-Type: application/json');
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 require_once 'koneksi_midtrans.php';
+require_once 'config.php';
 
 // Set your Merchant Server Key
-\Midtrans\Config::$serverKey = 'Mid-server-E2v38_EIu9J02vOM0IYEwSul';
-\Midtrans\Config::$isProduction = false;
+\Midtrans\Config::$serverKey = MIDTRANS_SERVER_KEY;
+\Midtrans\Config::$isProduction = MIDTRANS_IS_PRODUCTION;
 \Midtrans\Config::$isSanitized = true;
 \Midtrans\Config::$is3ds = true;
 
