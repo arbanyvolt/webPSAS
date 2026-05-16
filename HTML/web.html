@@ -1,74 +1,104 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chrocklock — Classic Luxury Watches</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="../CSS/Web.css" />
 
   <!-- Midtrans Snap -->
   <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="Mid-client-evN0MUz8X2Fx-VhC"></script>
 </head>
+
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#mainContent">Lewati ke konten</a>
+
   <header class="site-header">
     <div class="container header-wrap">
-      <a class="brand" href="#home" aria-label="Chrocklock home">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4">
-            <circle cx="32" cy="32" r="19"></circle>
-            <path d="M32 13V5M32 59v-8M13 32H5M59 32h-8"></path>
-            <path d="M32 32 43 24"></path>
-            <path d="M32 32 24 46"></path>
+      <a href="#home" class="brand" aria-label="Chrocklock home">
+        <span class="brand-mark">
+          <img src="../Gambar/logo.png" alt="Logo Chrocklock"
+            style="position: relative; top: 0px; height: 40px; width: auto;">
+          <svg viewBox="0 0 24 24" fill="none" width="24" height="24" style="position: absolute; opacity: 0;">
+            <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.2"></circle>
+            <path d="M12 7.8V12l3.2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></path>
           </svg>
         </span>
         <span class="brand-name">Chrocklock</span>
       </a>
-      <nav class="nav" aria-label="Primary">
+
+      <nav class="nav" aria-label="Navigasi utama">
         <a href="#home" data-i18n="nav.home">Home</a>
         <a href="#about" data-i18n="nav.about">About</a>
         <a href="#collection" data-i18n="nav.collection">Collection</a>
         <a href="#history" data-i18n="nav.history">History</a>
-              </nav>
+      </nav>
+
       <div class="header-actions">
-        <button class="lang-toggle" id="langToggle" aria-label="Toggle language">ID / EN</button>
-        <button class="icon-btn" id="themeToggle" aria-label="Switch theme">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Ubah bahasa">ID / EN</button>
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle tema">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
         </button>
+
         <a href="../PHP/login.php?redirect=../HTML/web.html" class="icon-btn" title="Login" aria-label="Login">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
         </a>
-        <button class="icon-btn" id="openCartBtn" aria-label="Open cart">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+
+        <button class="icon-btn" id="openCartBtn" type="button" aria-label="Buka cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
         </button>
       </div>
     </div>
   </header>
 
-  <main id="main">
+  <main id="mainContent">
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div class="hero-copy" data-reveal>
-          <div class="eyebrow" data-i18n="hero.eyebrow">Rumah jam tangan klasik terbatas</div>
+          <p class="eyebrow" data-i18n="hero.eyebrow">Rumah jam tangan klasik terbatas</p>
           <h1 data-i18n="hero.title">Saat waktu berubah menjadi warisan.</h1>
-          <p data-i18n="hero.desc">Chrocklock merangkai jam tangan klasik dalam edisi terbatas—bukan sekadar penunjuk waktu, tetapi penanda momen yang ingin Anda simpan lebih lama dari satu kehidupan tren. Setiap detail dipilih dengan tenang: dial yang bersih, proporsi yang seimbang, dan kilau baja yang terasa seperti bisikan, bukan teriakan.</p>
+          <p data-i18n="hero.desc">Chrocklock merangkai jam tangan klasik dalam edisi terbatas—bukan sekadar penunjuk
+            waktu, tetapi penanda momen yang ingin Anda simpan lebih lama dari satu kehidupan tren. Setiap detail
+            dipilih dengan tenang: dial yang bersih, proporsi yang seimbang, dan kilau baja yang terasa seperti bisikan,
+            bukan teriakan.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#collection" data-i18n="hero.cta1">Lihat koleksi</a>
-            <a class="btn btn-secondary" href="#about" data-i18n="hero.cta2">Baca cerita</a>
+            <a href="#collection" class="btn btn-primary" data-i18n="hero.cta1">Lihat koleksi</a>
+            <a href="#history" class="btn btn-secondary" data-i18n="hero.cta2">Baca cerita</a>
           </div>
           <div class="stat-row">
-            <div class="stat"><b>12</b><span data-i18n="stats.editions">Edisi terbatas per tahun</span></div>
-            <div class="stat"><b>48h</b><span data-i18n="stats.concierge">Respons concierge</span></div>
-            <div class="stat"><b>100%</b><span data-i18n="stats.curated">Estetika monokrom terkurasi</span></div>
+            <article class="stat"><b>12</b><span data-i18n="stats.editions">Edisi terbatas per tahun</span></article>
+            <article class="stat"><b>2 Year</b><span data-i18n="stats.warranty">Warranty</span></article>
+            <article class="stat"><b>100%</b><span data-i18n="stats.curated">Estetika monokrom terkurasi</span>
+            </article>
           </div>
         </div>
-        <div data-reveal>
-          <div class="hero-visual">
-            <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/96c07fd29119028bb97f30f16409513200bd5f6b.jpg" alt="Elegant black dial classic watch" width="693" height="693" loading="eager" decoding="async">
-          </div>
+        <div class="hero-visual" aria-label="Hero gallery" data-reveal>
+          <img class="hero-slide is-active" src="../Gambar/Jam1_1.png" alt="Jam tangan klasik tampilan pertama">
+          <img class="hero-slide"
+            src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3fbc773f7948bb51bbff3d9e18ea42af023998ba.jpg"
+            alt="Jam tangan klasik tampilan kedua">
+          <img class="hero-slide"
+            src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/27d4d15bcef056a3e7dff83e1de414dff044a9b1.jpg"
+            alt="Jam tangan klasik tampilan ketiga">
         </div>
       </div>
     </section>
@@ -77,20 +107,27 @@
       <div class="container">
         <div class="section-head" data-reveal>
           <div>
-            <div class="eyebrow" data-i18n="about.eyebrow">Tentang Chrocklock</div>
+            <p class="eyebrow" data-i18n="about.eyebrow">Tentang Chrocklock</p>
             <h2 data-i18n="about.title">Rumah monokrom untuk selera yang tidak mengejar waktu.</h2>
           </div>
-          <p data-i18n="about.lead">Chrocklock hadir bagi penikmat jam tangan yang lebih percaya pada keheningan desain dibanding gemuruh logo. Dalam palet hitam putih, kami merayakan bentuk yang jujur: dial lapang, indeks yang tenang, dan finishing yang terasa dekat dengan kulit maupun cerita.</p>
+          <p data-i18n="about.lead">Chrocklock hadir bagi penikmat jam tangan yang lebih percaya pada keheningan desain
+            dibanding gemuruh logo. Dalam palet hitam putih, kami merayakan bentuk yang jujur: dial lapang, indeks yang
+            tenang, dan finishing yang terasa dekat dengan kulit maupun cerita.</p>
         </div>
         <div class="about-grid">
           <article class="panel" data-reveal>
-            <p class="quote" data-i18n="about.quote">“Keanggunan sejati tidak mengejar perhatian—ia menunggu untuk ditemukan.”</p>
+            <p class="quote" data-i18n="about.quote">“Keanggunan sejati tidak mengejar perhatian—ia menunggu untuk
+              ditemukan.”</p>
           </article>
           <article class="panel" data-reveal>
-            <h3 data-i18n="about.storyTitle">Short stories</h3>
-            <p data-i18n="about.story1">Setiap koleksi dimulai dari satu pertanyaan sederhana: jika semua tren berhenti hari ini, apakah jam ini masih pantas dipakai dengan bangga? Dari sana, kami memilih proporsi, sudut, dan tekstur yang tidak meminta maaf pada waktu—hanya berdialog pelan dengannya.</p>
-            <br>
-            <p data-i18n="about.story2">Kami tidak mengejar deretan referensi yang panjang, melainkan kehadiran yang utuh. Bezel yang tidak berlebihan, lug yang seimbang, strap yang terasa menyatu dengan pergelangan—semua diarahkan pada satu hal: jam yang layak mewakili Anda, bahkan saat Anda diam.</p>
+            <p class="eyebrow" data-i18n="about.storyTitle">Short stories</p>
+            <p data-i18n="about.story1">Setiap koleksi dimulai dari satu pertanyaan sederhana: jika semua tren berhenti
+              hari ini, apakah jam ini masih pantas dipakai dengan bangga? Dari sana, kami memilih proporsi, sudut, dan
+              tekstur yang tidak meminta maaf pada waktu—hanya berdialog pelan dengannya.</p>
+            <br />
+            <p data-i18n="about.story2">Kami tidak mengejar deretan referensi yang panjang, melainkan kehadiran yang
+              utuh. Bezel yang tidak berlebihan, lug yang seimbang, strap yang terasa menyatu dengan pergelangan—semua
+              diarahkan pada satu hal: jam yang layak mewakili Anda, bahkan saat Anda diam.</p>
           </article>
         </div>
       </div>
@@ -100,82 +137,114 @@
       <div class="container">
         <div class="section-head" data-reveal>
           <div>
-            <div class="eyebrow" data-i18n="collection.eyebrow">Koleksi</div>
+            <p class="eyebrow" data-i18n="collection.eyebrow">Koleksi</p>
             <h2 data-i18n="collection.title">Potongan terbatas untuk lingkaran yang memilih dengan pelan.</h2>
           </div>
-          <p data-i18n="collection.lead">Koleksi Chrocklock disusun seperti galeri kecil: jumlah yang terhitung, siluet yang bersih, dan detail yang hanya terlihat oleh mereka yang mau memperhatikan lebih lama dari satu pandang. Setiap jam hadir bukan untuk memenuhi ruang, melainkan untuk mengisi cerita Anda berikutnya.</p>
+          <p data-i18n="collection.lead">Koleksi Chrocklock disusun seperti galeri kecil: jumlah yang terhitung, siluet
+            yang bersih, dan detail yang hanya terlihat oleh mereka yang mau memperhatikan lebih lama dari satu pandang.
+            Setiap jam hadir bukan untuk memenuhi ruang, melainkan untuk mengisi cerita Anda berikutnya.</p>
         </div>
         <div class="collection-grid" id="productGrid"></div>
       </div>
     </section>
 
     <section id="history">
-      <div class="container history-layout">
-        <div data-reveal>
-          <div class="section-head" style="margin-bottom:var(--space-6)">
-            <div>
-              <div class="eyebrow" data-i18n="history.eyebrow">Sejarah</div>
-              <h2 data-i18n="history.title">Dirancang dengan napas atelier lama, dihadirkan dalam ritme hari ini.</h2>
-            </div>
-          </div>
-          <div class="panel timeline">
-            <div class="timeline-item">
-              <small>01</small>
-              <h3 data-i18n="history.i1t">Asal mula</h3>
-              <p data-i18n="history.i1d">Berawal dari satu pertemuan sederhana antara penggemar jam tangan klasik dan meja kerja yang terlalu sering menjadi saksi tren lewat begitu saja. Di tengah kecepatan dunia, muncul keinginan untuk membuat sesuatu yang berjalan pelan—namun bertahan lebih lama.</p>
-            </div>
-            <div class="timeline-item">
-              <small>02</small>
-              <h3 data-i18n="history.i2t">Selera terkurasi</h3>
-              <p data-i18n="history.i2d">Arah desain Chrocklock menjauh dari keramaian warna dan bentuk. Kami memilih bahasa monokrom: hitam, putih, dan bayangan di antaranya. Di dalamnya, setiap garis dan permukaan diberi ruang untuk bernapas, seolah jam ini ditata di etalase atelier kecil yang hanya dikunjungi mereka yang tahu apa yang mereka cari.</p>
-            </div>
-            <div class="timeline-item">
-              <small>03</small>
-              <h3 data-i18n="history.i3t">Boutique masa depan</h3>
-              <p data-i18n="history.i3d">Struktur Chrocklock dibangun sejak awal untuk tumbuh tanpa kehilangan ketenangannya: siap disambungkan ke payment gateway, katalog yang lebih luas, dan domain yang lebih megah—namun tetap setia pada satu janji: menyuguhkan jam tangan klasik yang terasa seperti potongan puisi di pergelangan tangan.</p>
-            </div>
-          </div>
-        </div>
-        <figure class="history-image" data-reveal>
-          <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/b77c324c97667a6a912ede583dece606055d3be7.jpg" alt="Classic vintage style dress watch" width="1600" height="900" loading="lazy" decoding="async">
-        </figure>
-      </div>
-    </section>
-
-    <section id="contact">
       <div class="container">
         <div class="section-head" data-reveal>
           <div>
-            <div class="eyebrow">Concierge</div>
-            <h2>Konsultasi dan pemesanan privat.</h2>
+            <p class="eyebrow" data-i18n="history.eyebrow">Sejarah</p>
+            <h2 data-i18n="history.title">Dirancang dengan napas atelier lama, dihadirkan dalam ritme hari ini.</h2>
           </div>
-          <p>Tombol cart di bagian atas akan membuka popup pemesanan agar pengalaman belanja terasa lebih tenang, fokus, dan personal.</p>
+        </div>
+        <div class="history-layout">
+          <div class="timeline" data-reveal>
+            <article class="timeline-item"><small data-i18n="history.i1t">Asal mula</small>
+              <p data-i18n="history.i1d">Berawal dari satu pertemuan sederhana antara penggemar jam tangan klasik dan
+                meja kerja yang terlalu sering menjadi saksi tren lewat begitu saja. Di tengah kecepatan dunia, muncul
+                keinginan untuk membuat sesuatu yang berjalan pelan—namun bertahan lebih lama.</p>
+            </article>
+            <article class="timeline-item"><small data-i18n="history.i2t">Selera terkurasi</small>
+              <p data-i18n="history.i2d">Arah desain Chrocklock menjauh dari keramaian warna and bentuk. Kami memilih
+                bahasa monokrom: hitam, putih, and bayangan di antaranya. Di dalamnya, setiap garis and permukaan diberi
+                ruang untuk bernapas, seolah jam ini ditata di etalase atelier kecil yang hanya dikunjungi mereka yang
+                tahu apa yang mereka cari.</p>
+            </article>
+            <article class="timeline-item"><small data-i18n="history.i3t">Boutique masa depan</small>
+              <p data-i18n="history.i3d">Struktur Chrocklock dibangun sejak awal untuk tumbuh tanpa kehilangan
+                ketenangannya: siap disambungkan ke payment gateway, katalog yang lebih luas, and domain yang lebih
+                megah—namun tetap setia pada satu janji: menyuguhkan jam tangan klasik yang terasa seperti potongan
+                puisi di pergelangan tangan.</p>
+            </article>
+          </div>
+          <div class="history-gallery" data-reveal>
+            <figure class="history-photo history-photo-lg"><img
+                src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1200&q=80"
+                alt="Workshop jam tangan klasik" loading="lazy"></figure>
+            <figure class="history-photo"><img
+                src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=900&q=80"
+                alt="Detail jam tangan klasik" loading="lazy"></figure>
+            <figure class="history-photo"><img
+                src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=900&q=80"
+                alt="Koleksi jam tangan di meja display" loading="lazy"></figure>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3>Chrocklock</h3>
+          <p data-i18n="footer.copy">Jam tangan klasik mewah dalam bahasa visual yang tenang, puitis, and monokrom.</p>
+        </div>
+        <div class="footer-links">
+          <div><small>Navigasi</small><a href="#home">Home</a><a href="#collection">Collection</a><a
+              href="#history">History</a></div>
+          <div><small>Kontak</small>
+            <p>Email: Chrocklock@gmail.com</p>
+            <p>Purwokerto, Indonesia</p>
+          </div>
+          <div><small>Catatan</small>
+            <p data-i18n="footer.note">Siap dikembangkan menuju domain, hosting, payment gateway, and butik digital yang
+              lebih utuh.</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Chrocklock</span><span>Monochrome classical watch house</span></div>
+    </div>
+  </footer>
+
+  <!-- CART MODAL -->
   <div class="modal" id="cartModal" aria-hidden="true">
     <div class="modal-panel">
-      <button class="icon-btn modal-close" id="closeCartBtn" aria-label="Close cart">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+      <button class="icon-btn modal-close" id="closeCartBtn" type="button" aria-label="Tutup modal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6 6 18M6 6l12 12"></path>
+        </svg>
       </button>
       <div class="checkout-shell">
         <div class="panel">
           <div class="eyebrow" data-i18n="checkout.eyebrow">Pilihan Anda</div>
           <h2 data-i18n="checkout.title">Cart & checkout</h2>
           <div class="cart-list" id="cartList"></div>
+          <div id="summaryBox"></div>
         </div>
         <div class="panel">
           <div class="eyebrow" data-i18n="checkout.formEyebrow">Pemesanan concierge</div>
           <h2 data-i18n="checkout.formTitle">Lengkapi detail, kami yang akan menyusun sisanya.</h2>
-          <p style="color:var(--color-text-muted);margin-top:var(--space-3)" data-i18n="checkout.formLead">Tuliskan nama dan cara kami menghubungi Anda. Setelah itu, biarkan kami menyiapkan jam pilihan Anda seolah kami menyiapkan hadiah yang akan Anda berikan pada diri sendiri di masa depan.</p>
-          <div id="summaryBox"></div>
+          <p style="color:var(--color-text-muted);margin-top:var(--space-3)" data-i18n="checkout.formLead">Tuliskan nama
+            and cara kami menghubungi Anda.</p>
           <form class="checkout-form" id="checkoutForm">
-            <div class="field"><label for="name" data-i18n="form.name">Nama lengkap</label><input id="name" name="name" required></div>
-            <div class="field"><label for="email" data-i18n="form.email">Email</label><input id="email" name="email" type="email" required></div>
-            <div class="field"><label for="phone" data-i18n="form.phone">No. telepon / WhatsApp</label><input id="phone" name="phone" required></div>
-            <div class="field"><label for="address" data-i18n="form.address">Catatan pengiriman</label><textarea id="address" name="address"></textarea></div>
+            <div class="field"><label for="name" data-i18n="form.name">Nama lengkap</label><input id="name" name="name"
+                required></div>
+            <div class="field"><label for="email" data-i18n="form.email">Email</label><input id="email" name="email"
+                type="email" required></div>
+            <div class="field"><label for="phone" data-i18n="form.phone">No. telepon</label><input id="phone"
+                name="phone" required></div>
+            <div class="field"><label for="address" data-i18n="form.address">Catatan pengiriman</label><textarea
+                id="address" name="address"></textarea></div>
             <button class="btn btn-primary" type="submit" data-i18n="checkout.submit">Bayar Sekarang</button>
           </form>
         </div>
@@ -183,46 +252,7 @@
     </div>
   </div>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <div class="eyebrow">Chrocklock</div>
-          <h2 style="font-size:var(--text-xl);max-width:12ch;margin-bottom:var(--space-3)">A quiet house for watches meant to outlive noise.</h2>
-          <p data-i18n="footer.copy">Jam tangan klasik mewah dalam bahasa visual yang tenang, puitis, dan monokrom.</p>
-        </div>
-        <div class="footer-links">
-          <div>
-            <small>Navigate</small>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#collection">Collection</a>
-            <a href="#history">History</a>
-          </div>
-          <div>
-            <small>Concierge</small>
-            <a href="https://wa.me/6285601445637" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-            <a href="#contact">Private Order</a>
-            <a href="#collection">Limited Pieces</a>
-          </div>
-          <div>
-            <small>Notes</small>
-            <p data-i18n="footer.note">Siap dikembangkan menuju domain, hosting, payment gateway, dan butik digital yang lebih utuh.</p>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2026 Chrocklock</span>
-        <span>Classic luxury watches, shaped in monochrome.</span>
-      </div>
-    </div>
-  </footer>
-
-  <a class="wa-float" href="https://wa.me/62856-0144-5637?text=Halo%20Chrocklock%2C%20saya%20ingin%20konsultasi%20koleksi%20jam%20tangan." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Chrocklock">
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.07 0C5.5 0 .16 5.33.16 11.9c0 2.1.55 4.15 1.6 5.95L0 24l6.33-1.66a11.9 11.9 0 0 0 5.74 1.47h.01c6.57 0 11.91-5.34 11.91-11.91 0-3.18-1.24-6.16-3.47-8.42ZM12.08 21.8h-.01a9.88 9.88 0 0 1-5.03-1.37l-.36-.21-3.76.99 1-3.66-.23-.37a9.87 9.87 0 0 1-1.51-5.27c0-5.46 4.44-9.9 9.91-9.9 2.64 0 5.12 1.03 6.98 2.9a9.82 9.82 0 0 1 2.9 6.99c0 5.46-4.44 9.9-9.89 9.9Zm5.43-7.39c-.3-.15-1.77-.88-2.05-.98-.28-.1-.48-.15-.69.15-.2.3-.78.98-.95 1.18-.18.2-.35.23-.65.08-.3-.15-1.25-.46-2.39-1.48-.88-.79-1.48-1.77-1.65-2.07-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.69-1.66-.95-2.28-.25-.6-.5-.52-.69-.53h-.58c-.2 0-.53.08-.8.38-.28.3-1.05 1.03-1.05 2.51 0 1.48 1.08 2.91 1.23 3.11.15.2 2.12 3.23 5.13 4.53.72.31 1.29.5 1.73.64.73.23 1.4.2 1.92.12.59-.09 1.77-.73 2.03-1.43.25-.71.25-1.31.18-1.43-.08-.13-.28-.2-.58-.35Z"/></svg>
-    <span>WhatsApp</span>
-  </a>
-
   <script src="../JS/web.js" defer></script>
 </body>
+
 </html>
