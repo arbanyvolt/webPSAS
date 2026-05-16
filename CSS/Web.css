@@ -115,25 +115,27 @@ h1{font-size:var(--text-3xl);max-width:10ch}h2{font-size:var(--text-2xl)}h3{font
   position: fixed;
   bottom: 24px;
   right: 24px;
-  background-color: #25d366;
-  color: #fff;
+  background-color: var(--color-text);
+  color: var(--color-bg);
   padding: 10px 20px;
-  border-radius: 50px;
+  border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   gap: 8px;
   text-decoration: none;
   font-weight: 600;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
   z-index: 1000;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: transform var(--transition), background-color var(--transition), color var(--transition);
 }
 
 .wa-float:hover {
   transform: translateY(-4px);
-  background-color: #1ebe57;
-  color: #fff;
+  background-color: var(--color-surface-3);
+  color: var(--color-text);
 }
+
 
 .wa-float svg {
   fill: currentColor;
