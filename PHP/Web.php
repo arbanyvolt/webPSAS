@@ -8,7 +8,7 @@ include 'koneksi.php';
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chrocklock — Classic Luxury Watches</title>
+  <title>Chroclock — Classic Luxury Watches</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,7 +33,7 @@ include 'koneksi.php';
             <path d="M12 7.8V12l3.2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></path>
           </svg>
         </span>
-        <span class="brand-name">Chrocklock</span>
+        <span class="brand-name">Chroclock</span>
       </a>
 
       <nav class="nav" aria-label="Navigasi utama">
@@ -77,7 +77,7 @@ include 'koneksi.php';
         <div class="hero-copy" data-reveal>
           <p class="eyebrow" data-i18n="hero.eyebrow">Rumah jam tangan klasik terbatas</p>
           <h1 data-i18n="hero.title">Saat waktu berubah menjadi warisan.</h1>
-          <p data-i18n="hero.desc">Chrocklock merangkai jam tangan klasik dalam edisi terbatas—bukan sekadar penunjuk waktu, tetapi penanda momen yang ingin Anda simpan lebih lama dari satu kehidupan tren. Setiap detail dipilih dengan tenang: dial yang bersih, proporsi yang seimbang, dan kilau baja yang terasa seperti bisikan, bukan teriakan.</p>
+          <p data-i18n="hero.desc">Chroclock merangkai jam tangan klasik dalam edisi terbatas—bukan sekadar penunjuk waktu, tetapi penanda momen yang ingin Anda simpan lebih lama dari satu kehidupan tren. Setiap detail dipilih dengan tenang: dial yang bersih, proporsi yang seimbang, dan kilau baja yang terasa seperti bisikan, bukan teriakan.</p>
           <div class="hero-actions">
             <a href="#collection" class="btn btn-primary" data-i18n="hero.cta1">Lihat koleksi</a>
             <a href="#history" class="btn btn-secondary" data-i18n="hero.cta2">Baca cerita</a>
@@ -100,10 +100,10 @@ include 'koneksi.php';
       <div class="container">
         <div class="section-head" data-reveal>
           <div>
-            <p class="eyebrow" data-i18n="about.eyebrow">Tentang Chrocklock</p>
+            <p class="eyebrow" data-i18n="about.eyebrow">Tentang Chroclock</p>
             <h2 data-i18n="about.title">Rumah monokrom untuk selera yang tidak mengejar waktu.</h2>
           </div>
-          <p data-i18n="about.lead">Chrocklock hadir bagi penikmat jam tangan yang lebih percaya pada keheningan desain dibanding gemuruh logo. Dalam palet hitam putih, kami merayakan bentuk yang jujur: dial lapang, indeks yang tenang, dan finishing yang terasa dekat dengan kulit maupun cerita.</p>
+          <p data-i18n="about.lead">Chroclock hadir bagi penikmat jam tangan yang lebih percaya pada keheningan desain dibanding gemuruh logo. Dalam palet hitam putih, kami merayakan bentuk yang jujur: dial lapang, indeks yang tenang, dan finishing yang terasa dekat dengan kulit maupun cerita.</p>
         </div>
         <div class="about-grid">
           <article class="panel" data-reveal>
@@ -126,7 +126,7 @@ include 'koneksi.php';
             <p class="eyebrow" data-i18n="collection.eyebrow">Koleksi</p>
             <h2 data-i18n="collection.title">Potongan terbatas untuk lingkaran yang memilih dengan pelan.</h2>
           </div>
-          <p data-i18n="collection.lead">Koleksi Chrocklock disusun seperti galeri kecil: jumlah yang terhitung, siluet yang bersih, dan detail yang hanya terlihat oleh mereka yang mau memperhatikan lebih lama dari satu pandang. Setiap jam hadir bukan untuk memenuhi ruang, melainkan untuk mengisi cerita Anda berikutnya.</p>
+          <p data-i18n="collection.lead">Koleksi Chroclock disusun seperti galeri kecil: jumlah yang terhitung, siluet yang bersih, dan detail yang hanya terlihat oleh mereka yang mau memperhatikan lebih lama dari satu pandang. Setiap jam hadir bukan untuk memenuhi ruang, melainkan untuk mengisi cerita Anda berikutnya.</p>
         </div>
         <div class="collection-grid" id="productGrid">
           <!-- JS will render this, but we'll provide data via PHP -->
@@ -167,11 +167,11 @@ include 'koneksi.php';
         </div>
         <div class="footer-links">
           <div><small>Navigasi</small><a href="#home">Home</a><a href="#collection">Collection</a><a href="#history">History</a></div>
-          <div><small>Kontak</small><p>Email: Chrocklock@gmail.com</p><p>Purwokerto, Indonesia</p></div>
+          <div><small>Kontak</small><p>Email: Chroclock@gmail.com</p><p>Purwokerto, Indonesia</p></div>
           <div><small>Catatan</small><p data-i18n="footer.note">Siap dikembangkan menuju domain, hosting, payment gateway, dan butik digital yang lebih utuh.</p></div>
         </div>
       </div>
-      <div class="footer-bottom"><span>© 2026 Chrocklock</span><span>Monochrome classical watch house</span></div>
+      <div class="footer-bottom"><span>© 2026 Chroclock</span><span>Monochrome classical watch house</span></div>
     </div>
   </footer>
 
