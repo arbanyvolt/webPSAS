@@ -37,7 +37,7 @@ $redirect = isset($_GET['redirect']) ? $_GET['redirect'] : 'Web.php';
             <div class="input-group">
                 <label>kata sandi</label>
                 <input type="password" name="password" placeholder="********" required>
-                <a href="#" class="forgot">Lupa sandi?</a>
+                <a href="lupa_password.php?redirect=<?= urlencode($redirect); ?>" class="forgot">Lupa sandi?</a>
             </div>
 
             <button type="submit" class="btn-login">Masuk</button>
