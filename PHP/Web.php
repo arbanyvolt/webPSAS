@@ -46,8 +46,8 @@ include 'koneksi.php';
       <div class="header-actions">
         <button class="lang-toggle" id="langToggle" type="button" aria-label="Ubah bahasa">ID / EN</button>
         <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle tema">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </button>
 
@@ -226,12 +226,12 @@ include 'koneksi.php';
   <script>
     var products = <?= json_encode($productsArray) ?>;
   </script>
-  <a class="wa-float" href="https://wa.me/62856-0144-5637?text=Halo%20Chroclock%2C%20saya%20ingin%20konsultasi%20koleksi%20jam%20tangan." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Chroclock">
+  <a class="wa-float" href="https://wa.me/6285601445637?text=Halo%20Chroclock%2C%20saya%20ingin%20konsultasi%20koleksi%20jam%20tangan." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Chroclock">
     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.07 0C5.5 0 .16 5.33.16 11.9c0 2.1.55 4.15 1.6 5.95L0 24l6.33-1.66a11.9 11.9 0 0 0 5.74 1.47h.01c6.57 0 11.91-5.34 11.91-11.91 0-3.18-1.24-6.16-3.47-8.42ZM12.08 21.8h-.01a9.88 9.88 0 0 1-5.03-1.37l-.36-.21-3.76.99 1-3.66-.23-.37a9.87 9.87 0 0 1-1.51-5.27c0-5.46 4.44-9.9 9.91-9.9 2.64 0 5.12 1.03 6.98 2.9a9.82 9.82 0 0 1 2.9 6.99c0 5.46-4.44 9.9-9.89 9.9Zm5.43-7.39c-.3-.15-1.77-.88-2.05-.98-.28-.1-.48-.15-.69.15-.2.3-.78.98-.95 1.18-.18.2-.35.23-.65.08-.3-.15-1.25-.46-2.39-1.48-.88-.79-1.48-1.77-1.65-2.07-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.69-1.66-.95-2.28-.25-.6-.5-.52-.69-.53h-.58c-.2 0-.53.08-.8.38-.28.3-1.05 1.03-1.05 2.51 0 1.48 1.08 2.91 1.23 3.11.15.2 2.12 3.23 5.13 4.53.72.31 1.29.5 1.73.64.73.23 1.4.2 1.92.12.59-.09 1.77-.73 2.03-1.43.25-.71.25-1.31.18-1.43-.08-.13-.28-.2-.58-.35Z"/></svg>
     <span>WhatsApp</span>
   </a>
 
-  <script src="../JS/web.js" defer></script>
+  <script src="../JS/web.js?v=2" defer></script>
 
 </body>
 </html>
