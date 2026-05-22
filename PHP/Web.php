@@ -44,7 +44,6 @@ include 'koneksi.php';
       </nav>
 
       <div class="header-actions">
-        <button class="lang-toggle" id="langToggle" type="button" aria-label="Ubah bahasa">ID / EN</button>
         <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle tema">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
@@ -163,12 +162,12 @@ include 'koneksi.php';
       <div class="footer-top">
         <div class="footer-brand">
           <h3>Chroclock</h3>
-          <p data-i18n="footer.copy">Jam tangan klasik mewah dalam bahasa visual yang tenang, puitis, dan monokrom.</p>
+          <p data-i18n="footer.copy">Classic luxury watches in a quiet, poetic, monochrome language.</p>
         </div>
         <div class="footer-links">
-          <div><small>Navigasi</small><a href="#home">Beranda</a><a href="#collection">Koleksi</a><a href="#history">Sejarah</a></div>
-          <div><small>Kontak</small><p>Email: Chroclock@gmail.com</p><p>Purwokerto, Indonesia</p></div>
-          <div><small>Catatan</small><p data-i18n="footer.note">Siap dikembangkan menuju domain, hosting, payment gateway, dan butik digital yang lebih utuh.</p></div>
+          <div><small>Navigation</small><a href="#home">Home</a><a href="#collection">Collection</a><a href="#history">History</a></div>
+          <div><small>Contact</small><p>Email: Chroclock@gmail.com</p><p>Purwokerto, Indonesia</p></div>
+          <div><small>Notes</small><p data-i18n="footer.note">Ready to grow into a fuller digital boutique with domain, hosting, payment gateway, and expanded catalogue.</p></div>
         </div>
       </div>
       <div class="footer-bottom"><span>© 2026 Chroclock</span><span>Monochrome classical watch house</span></div>
