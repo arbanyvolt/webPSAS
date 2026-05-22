@@ -176,11 +176,11 @@ include 'koneksi.php';
 
   <!-- CART MODAL -->
   <div class="modal" id="cartModal" aria-hidden="true">
-    <div class="modal-panel">
+    <div class="modal-panel" style="max-width: 540px;">
       <button class="icon-btn modal-close" id="closeCartBtn" type="button" aria-label="Tutup modal">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"></path></svg>
       </button>
-      <div class="checkout-shell">
+      <div class="checkout-shell" style="grid-template-columns: 1fr;">
         <div class="panel cart-panel-selection">
           <div class="eyebrow" data-i18n="checkout.eyebrow">Pilihan Anda</div>
           <h2 data-i18n="checkout.title">Cart & checkout</h2>
