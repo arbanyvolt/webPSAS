@@ -15,7 +15,7 @@ const copy = {
     'collection.eyebrow': 'Kurasi Koleksi', 'collection.title': 'Kepingan Terbatas untuk Selera yang Terkurasi.', 'collection.lead': 'Setiap kepingan dikurasi layaknya sebuah galeri intim: terbatas dalam jumlah, murni dalam siluet, dan kaya akan detail yang hanya akan terungkap bagi mata yang jeli. Jam ini hadir bukan untuk sekadar memenuhi ruang, melainkan untuk melengkapi babak baru dalam hidup Anda.',
     'history.eyebrow': 'Jejak Langkah', 'history.title': 'Akar Tradisi, Visi Kontemporer.', 'history.i1t': 'Titik Mula', 'history.i1d': 'Berawal dari visi seorang artisan di meja kerja yang sunyi. Di tengah hiruk-pikuk dunia yang serba instan, lahir keinginan untuk menciptakan instrumen yang berdetak pelan, namun memiliki jiwa yang bertahan melintasi dekade.', 'history.i2t': 'Estetika Terkurasi', 'history.i2d': 'Arah desain Chroclock menjauh dari keriuhan visual. Kami memilih bahasa monokrom: hitam, putih, dan spektrum bayangan di antaranya. Di dalamnya, setiap garis diberi ruang untuk bernapas, memberikan ketenangan bagi mereka yang benar-benar memahami apa yang mereka cari.', 'history.i3t': 'Butik Masa Depan', 'history.i3d': 'Chroclock dibangun untuk terus tumbuh tanpa mengorbankan ketenangannya. Kami tetap setia pada satu janji: menghadirkan arloji klasik yang terasa seperti bait puisi yang melingkar indah di pergelangan tangan Anda.',
     'checkout.eyebrow': 'Kurasi Pilihan', 'checkout.title': 'Keranjang & Pembayaran', 'checkout.formEyebrow': 'Layanan Concierge', 'checkout.formTitle': 'Percayakan Detail Anda pada Kami.', 'checkout.formLead': 'Tuliskan nama dan kontak Anda. Biarkan kami menyiapkan arloji pilihan Anda layaknya sebuah persembahan istimewa bagi diri Anda di masa depan.',
-    'form.name': 'Nama Lengkap', 'form.email': 'Alamat Surel', 'form.phone': 'Nomor Telepon', 'form.address': 'Instruksi Pengiriman',
+    'form.name': 'Nama Lengkap', 'form.email': 'Alamat Surel', 'form.phone': 'Nomor Telepon', 'form.address': 'Instruksi Pengiriman', 'checkout.submit': 'Bayar Sekarang',
     'footer.copy': 'Arloji klasik mewah dalam bahasa visual yang tenang, puitis, dan monokrom.', 'footer.note': 'Bersiap menuju integrasi domain, hosting, payment gateway, dan butik digital yang lebih paripurna.'
   },
   en: {
@@ -26,7 +26,7 @@ const copy = {
     'collection.eyebrow': 'Collection', 'collection.title': 'Limited Pieces for the Discerning Eye.', 'collection.lead': 'Our collection is arranged like an intimate gallery: intentional in count, clean in silhouette, and rich in details that reveal themselves to those who look closely. Each watch arrives not to fill space, but to inhabit your next chapter.',
     'history.eyebrow': 'History', 'history.title': 'Shaped by Heritage, Tuned to the Present.', 'history.i1t': 'Origin', 'history.i1d': 'It began with a simple encounter between a lover of classic watches and a workbench that became a silent witness to a vision. Amid the pace of the world, there was a desire to create something that moves slowly—but stays much longer.', 'history.i2t': 'Curated taste', 'history.i2d': 'Chroclock’s design direction walks away from visual noise. We speak in monochrome: black, white, and the shades in between. Every line is given room to breathe, as if each watch were placed in a small atelier window visited only by those who know what they are looking for.', 'history.i3t': 'Future boutique', 'history.i3d': 'Chroclock is structured to grow without losing its quiet. We remain anchored to one promise: to offer classic watches that feel like a fragment of poetry resting on your wrist.',
     'checkout.eyebrow': 'Your selection', 'checkout.title': 'Cart & checkout', 'checkout.formEyebrow': 'Concierge order', 'checkout.formTitle': 'Share the details—we’ll compose the rest.', 'checkout.formLead': 'Tell us your name and how to reach you. From there, we’ll prepare your chosen watch as if we were arranging a gift you intend to give your future self.',
-    'form.name': 'Full name', 'form.email': 'Email', 'form.phone': 'Phone', 'form.address': 'Delivery notes',
+    'form.name': 'Full name', 'form.email': 'Email', 'form.phone': 'Phone', 'form.address': 'Delivery notes', 'checkout.submit': 'Pay Now',
     'footer.copy': 'Classic luxury watches in a quiet, poetic, monochrome language.', 'footer.note': 'Ready to grow into a fuller digital boutique with domain, hosting, payment gateway, and expanded catalogue.'
   }
 };
@@ -34,6 +34,9 @@ const copy = {
 let currentLang = 'en';
 let currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 let cart = [];
+let isLoggedIn = false;
+let selectedProductId = null;
+let selectedQty = 1;
 
 const cartModal = document.getElementById('cartModal');
 const cartList = document.getElementById('cartList');
@@ -131,9 +134,13 @@ function renderCart() {
 }
 
 function addToCart(productId) {
+  addToCartWithQty(productId, 1);
+}
+
+function addToCartWithQty(productId, qty) {
   const found = cart.find(item => item.id === productId);
-  if (found) found.qty += 1;
-  else cart.push({ id: productId, qty: 1 });
+  if (found) found.qty += qty;
+  else cart.push({ id: productId, qty: qty });
   renderCart();
   openCart();
 }
@@ -148,6 +155,10 @@ function updateQty(productId, delta) {
 
 function openCart() {
   if (cartModal) {
+    const selectionPanel = cartModal.querySelector('.cart-panel-selection');
+    const formPanel = cartModal.querySelector('.checkout-panel-form');
+    if (selectionPanel) selectionPanel.style.display = 'block';
+    if (formPanel) formPanel.style.display = 'none';
     cartModal.classList.add('open');
     cartModal.setAttribute('aria-hidden', 'false');
   }
@@ -306,6 +317,7 @@ async function checkLoginStatus() {
     if (!response.ok) throw new Error('Network response was not ok');
 
     const data = await response.json();
+    isLoggedIn = data.logged_in;
     const headerActions = document.querySelector('.header-actions');
     if (!headerActions) return;
 
@@ -359,8 +371,99 @@ if (cartModal) {
   });
 }
 
+// STEPPED CHECKOUT NAVIGATION
+const goToCheckoutBtn = document.getElementById('goToCheckoutBtn');
+if (goToCheckoutBtn) {
+  goToCheckoutBtn.addEventListener('click', () => {
+    if (!isLoggedIn) {
+      alert("Please login first to proceed to checkout.");
+      const isHtmlFolder = window.location.pathname.includes('/HTML/');
+      const loginUrl = isHtmlFolder ? '../PHP/login.php' : (window.location.pathname.includes('/PHP/') ? 'login.php' : 'PHP/login.php');
+      window.location.href = loginUrl + '?redirect=' + encodeURIComponent(window.location.href);
+      return;
+    }
+    const selectionPanel = cartModal.querySelector('.cart-panel-selection');
+    const formPanel = cartModal.querySelector('.checkout-panel-form');
+    if (selectionPanel) selectionPanel.style.display = 'none';
+    if (formPanel) formPanel.style.display = 'block';
+  });
+}
+
+const backToCartBtn = document.getElementById('backToCartBtn');
+if (backToCartBtn) {
+  backToCartBtn.addEventListener('click', () => {
+    const selectionPanel = cartModal.querySelector('.cart-panel-selection');
+    const formPanel = cartModal.querySelector('.checkout-panel-form');
+    if (selectionPanel) selectionPanel.style.display = 'block';
+    if (formPanel) formPanel.style.display = 'none';
+  });
+}
+
+// QUANTITY SELECTION MODAL LOGIC
+const qtyModal = document.getElementById('qtyModal');
+const qtyProductLabel = document.getElementById('qtyProductLabel');
+const qtySelectCount = document.getElementById('qtySelectCount');
+
+function openQtyModal(productId) {
+  const product = products.find(p => p.id === productId);
+  if (!product) return;
+  selectedProductId = productId;
+  selectedQty = 1;
+  if (qtyProductLabel) qtyProductLabel.textContent = product.name;
+  if (qtySelectCount) qtySelectCount.textContent = selectedQty;
+  if (qtyModal) {
+    qtyModal.classList.add('open');
+    qtyModal.setAttribute('aria-hidden', 'false');
+  }
+}
+
+function closeQtyModal() {
+  if (qtyModal) {
+    qtyModal.classList.remove('open');
+    qtyModal.setAttribute('aria-hidden', 'true');
+  }
+  selectedProductId = null;
+}
+
+const qtySelectMinus = document.getElementById('qtySelectMinus');
+const qtySelectPlus = document.getElementById('qtySelectPlus');
+const confirmAddQtyBtn = document.getElementById('confirmAddQtyBtn');
+const closeQtyBtn = document.getElementById('closeQtyBtn');
+
+if (qtySelectMinus) {
+  qtySelectMinus.addEventListener('click', () => {
+    if (selectedQty > 1) {
+      selectedQty--;
+      if (qtySelectCount) qtySelectCount.textContent = selectedQty;
+    }
+  });
+}
+
+if (qtySelectPlus) {
+  qtySelectPlus.addEventListener('click', () => {
+    selectedQty++;
+    if (qtySelectCount) qtySelectCount.textContent = selectedQty;
+  });
+}
+
+if (confirmAddQtyBtn) {
+  confirmAddQtyBtn.addEventListener('click', () => {
+    if (selectedProductId) {
+      addToCartWithQty(selectedProductId, selectedQty);
+      closeQtyModal();
+    }
+  });
+}
+
+if (closeQtyBtn) closeQtyBtn.addEventListener('click', closeQtyModal);
+if (qtyModal) {
+  qtyModal.addEventListener('click', e => {
+    if (e.target === qtyModal) closeQtyModal();
+  });
+}
+
 document.addEventListener('click', e => {
-  if (e.target.classList.contains('add-to-cart')) addToCart(e.target.dataset.id);
+  if (e.target.classList.contains('add-to-cart')) openQtyModal(e.target.dataset.id);
   if (e.target.classList.contains('qty-plus')) updateQty(e.target.dataset.id, 1);
   if (e.target.classList.contains('qty-minus')) updateQty(e.target.dataset.id, -1);
 });

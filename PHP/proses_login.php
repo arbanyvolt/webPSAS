@@ -15,6 +15,8 @@ if(mysqli_num_rows($query) > 0){
     if($password == $user['password']){
 
         $_SESSION['user'] = $user['name'];
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['user_email'] = $user['email'];
         session_write_close();
 
         // redirect ke halaman sebelumnya

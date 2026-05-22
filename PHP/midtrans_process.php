@@ -1,9 +1,19 @@
 <?php
+session_start();
 header('Content-Type: application/json');
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 require_once 'koneksi_midtrans.php';
 require_once 'config.php';
+
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    echo json_encode(['error' => 'You must be logged in to checkout.']);
+    exit;
+}
+
+$user_id = $_SESSION['user_id'];
+$user_email = $_SESSION['user_email'];
 
 // Set your Merchant Server Key
 \Midtrans\Config::$serverKey = MIDTRANS_SERVER_KEY;
@@ -41,7 +51,7 @@ try {
     mysqli_query($conn_midtrans, "DELETE FROM orders WHERE status = 'pending' AND created_at < NOW() - INTERVAL 5 MINUTE");
 
     // Simpan data awal ke database dengan status 'pending'
-    $query = "INSERT INTO orders (order_id, name, email, amount, status) VALUES ('$order_id', '$name', '$email', '$gross_amount', 'pending')";
+    $query = "INSERT INTO orders (order_id, user_id, user_email, name, email, amount, status) VALUES ('$order_id', '$user_id', '$user_email', '$name', '$email', '$gross_amount', 'pending')";
     mysqli_query($conn_midtrans, $query);
 
     $snapToken = \Midtrans\Snap::getSnapToken($params);

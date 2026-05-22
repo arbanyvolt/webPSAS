@@ -181,13 +181,15 @@ include 'koneksi.php';
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"></path></svg>
       </button>
       <div class="checkout-shell">
-        <div class="panel">
+        <div class="panel cart-panel-selection">
           <div class="eyebrow" data-i18n="checkout.eyebrow">Pilihan Anda</div>
           <h2 data-i18n="checkout.title">Cart & checkout</h2>
           <div class="cart-list" id="cartList"></div>
           <div id="summaryBox"></div>
+          <button class="btn btn-primary" id="goToCheckoutBtn" type="button" style="width: 100%; margin-top: var(--space-4);">Checkout</button>
         </div>
-        <div class="panel">
+        <div class="panel checkout-panel-form" style="display: none;">
+          <button class="btn btn-secondary" id="backToCartBtn" type="button" style="width: 100%; margin-bottom: var(--space-4);">Back to Cart</button>
           <div class="eyebrow" data-i18n="checkout.formEyebrow">Pemesanan concierge</div>
           <h2 data-i18n="checkout.formTitle">Lengkapi detail, kami yang akan menyusun sisanya.</h2>
           <p style="color:var(--color-text-muted);margin-top:var(--space-3)" data-i18n="checkout.formLead">Tuliskan nama dan cara kami menghubungi Anda.</p>
@@ -195,11 +197,28 @@ include 'koneksi.php';
             <div class="field"><label for="name" data-i18n="form.name">Nama lengkap</label><input id="name" name="name" required></div>
             <div class="field"><label for="email" data-i18n="form.email">Email</label><input id="email" name="email" type="email" required></div>
             <div class="field"><label for="phone" data-i18n="form.phone">No. telepon</label><input id="phone" name="phone" required></div>
-            <div class="field"><label for="address" data-i18n="form.address">Catatan pengiriman</label><textarea id="address" name="address"></textarea></div>
-            <button class="btn btn-primary" type="submit" data-i18n="checkout.submit">Bayar Sekarang</button>
+            <div class="field"><label for="address" data-i18n="form.address">Catatan pengiriman</label><textarea id="address" name="address" required></textarea></div>
+            <button class="btn btn-primary" type="submit" data-i18n="checkout.submit">Pay Now</button>
           </form>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- QUANTITY SELECTION MODAL -->
+  <div class="modal" id="qtyModal" aria-hidden="true">
+    <div class="modal-panel" style="max-width: 400px; text-align: center; padding: var(--space-6);">
+      <button class="icon-btn modal-close" id="closeQtyBtn" type="button" aria-label="Tutup modal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+      </button>
+      <h3 style="font-family: var(--font-display); margin-bottom: var(--space-3); font-size: 1.5rem;">Select Quantity</h3>
+      <p id="qtyProductLabel" style="font-weight: 600; margin-bottom: var(--space-4); color: var(--color-text-muted);"></p>
+      <div class="qty-select-container" style="display: flex; align-items: center; justify-content: center; gap: var(--space-4); margin-bottom: var(--space-6);">
+        <button class="btn btn-secondary" id="qtySelectMinus" type="button" style="padding: 5px 15px; font-size: 1.2rem; min-width: 40px;">-</button>
+        <span id="qtySelectCount" style="font-size: 1.5rem; font-weight: 600; min-width: 40px; display: inline-block;">1</span>
+        <button class="btn btn-secondary" id="qtySelectPlus" type="button" style="padding: 5px 15px; font-size: 1.2rem; min-width: 40px;">+</button>
+      </div>
+      <button class="btn btn-primary" id="confirmAddQtyBtn" style="width: 100%;">Add to Cart</button>
     </div>
   </div>
 
