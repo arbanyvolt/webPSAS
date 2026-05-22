@@ -80,7 +80,7 @@ function renderProducts() {
           </div>
           <div class="price">${formatCurrency(product.price)}</div>
         </div>
-        <p class="product-desc">${product.desc[currentLang] || product.desc}</p>
+        <p class="product-desc">${(product.desc && typeof product.desc === 'object') ? (product.desc[currentLang] || '') : (product.desc || '')}</p>
         <div class="product-actions">
           <button class="btn btn-primary add-to-cart" data-id="${product.id}">${currentLang === 'id' ? 'Tambah ke cart' : 'Add to cart'}</button>
           <button class="btn btn-secondary" onclick="openCart()">${currentLang === 'id' ? 'Checkout' : 'Checkout'}</button>
