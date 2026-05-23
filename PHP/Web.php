@@ -169,7 +169,11 @@ include 'koneksi.php';
         <div class="footer-links">
           <div><small>Navigation</small><a href="#home">Home</a><a href="#collection">Collection</a><a href="#history">History</a></div>
           <div><small>Contact</small><p>Email: Chroclock@gmail.com</p><p>Purwokerto, Indonesia</p></div>
-          <div><small>Notes</small><p data-i18n="footer.note">Ready to grow into a fuller digital boutique with domain, hosting, payment gateway, and expanded catalogue.</p></div>
+          <div><small data-i18n="footer.social">Media Sosial</small>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer">TikTok</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+          </div>
         </div>
       </div>
       <div class="footer-bottom"><span>© 2026 Chroclock</span></div>
