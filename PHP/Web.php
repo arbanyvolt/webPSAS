@@ -84,7 +84,7 @@ include 'koneksi.php';
           </div>
           <div class="stat-row">
             <article class="stat"><b>12</b><span>Yearly Limited Editions</span></article>
-            <article class="stat"><b>2 Years</b><span>Exclusive Warranty</span></article>
+            <article class="stat"><b>2</b><span>Years Warranty</span></article>
             <article class="stat"><b>100%</b><span>Indonesian Craftsmanship</span></article>
           </div>
         </div>
