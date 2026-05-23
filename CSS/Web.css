@@ -53,7 +53,7 @@ button{background:none;border:none;cursor:pointer}
 .icon-btn:hover,.lang-toggle:hover{transform:translateY(-1px);box-shadow:var(--shadow-sm)}
 .lang-toggle{padding:0 .95rem;min-width:auto}
 section{padding:clamp(3.5rem,7vw,6rem) 0}
-.hero{padding:clamp(2rem,4vw,4rem) 0 var(--space-20);position:relative;overflow:hidden;isolation:isolate}
+.hero{padding:clamp(1.5rem,3.5vw,3rem) 0 var(--space-20);position:relative;overflow:hidden;isolation:isolate}
 .hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:var(--space-10);align-items:end}
 .eyebrow{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.28em;color:var(--color-text-muted);margin-bottom:var(--space-4)}
 h1,h2,h3{font-family:var(--font-display);line-height:1.06;font-weight:600}
