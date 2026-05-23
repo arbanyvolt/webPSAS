@@ -27,7 +27,8 @@ include 'koneksi.php';
     <div class="container header-wrap">
       <a href="#home" class="brand" aria-label="Chroclock home">
         <span class="brand-mark">
-          <img src="../Gambar/logo.png" alt="Logo Chroclock" style="position: relative; top: 0px; height: 40px; width: auto;">
+          <img src="../Gambar/logo_light.png" alt="Logo Chroclock" class="logo-light" style="position: relative; top: 0px; height: 40px; width: auto;">
+          <img src="../Gambar/logo.png" alt="Logo Chroclock" class="logo-dark" style="position: relative; top: 0px; height: 40px; width: auto;">
           <svg viewBox="0 0 24 24" fill="none" width="24" height="24" style="position: absolute; opacity: 0;">
             <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.2"></circle>
             <path d="M12 7.8V12l3.2 2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></path>
