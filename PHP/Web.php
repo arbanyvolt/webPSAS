@@ -172,7 +172,7 @@ include 'koneksi.php';
           <div><small>Notes</small><p data-i18n="footer.note">Ready to grow into a fuller digital boutique with domain, hosting, payment gateway, and expanded catalogue.</p></div>
         </div>
       </div>
-      <div class="footer-bottom"><span>© 2026 Chroclock</span><span>Monochrome classical watch house</span></div>
+      <div class="footer-bottom"><span>© 2026 Chroclock</span></div>
     </div>
   </footer>
 
