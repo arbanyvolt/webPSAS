@@ -6,18 +6,6 @@ if (typeof products === 'undefined') {
   ];
 }
 
-const copy = {
-  'nav.home': 'Home', 'nav.about': 'About', 'nav.collection': 'Collection', 'nav.history': 'History', 'nav.checkout': 'Checkout',
-  'hero.eyebrow': 'Curated Classic Watch Atelier', 'hero.title': 'Time Fades, Heritage Remains.', 'hero.desc': 'Timepieces crafted with a quiet confidence. Our limited editions are not just for keeping hours, but for marking moments that deserve to outlive the cycle of trends. Every detail is chosen with care: clean dials, balanced proportions, and a steel glow that feels like a sophisticated whisper.', 'hero.cta1': 'Explore collection', 'hero.cta2': 'Read the story',
-  'stats.editions': 'Yearly Limited Editions', 'stats.warranty': '2-Year Exclusive Warranty', 'stats.brand': 'Indonesian Craftsmanship',
-  'about.eyebrow': 'About Chroclock', 'about.title': 'Quiet Design, Timeless Seconds.', 'about.lead': 'Made for those who value the weight of detail over the noise of branding. Within a monochrome palette, we honor honest forms—an interplay of archival inspiration and contemporary rhythm.', 'about.quote': '“True elegance never asks for attention—it waits to be noticed.”', 'about.storyTitle': 'Short stories', 'about.story1': 'Every collection begins with a single question: if all trends stopped today, would this watch still be worn with pride? From there, we choose proportions and textures that do not apologize to time—they simply converse softly with it.', 'about.story2': 'We are not chasing a long list of references, but a complete presence. A bezel without excess, balanced lugs, a strap that feels like an extension of your hand—all directed toward one quiet aim: a watch that can represent you, even when you say nothing.',
-  'collection.eyebrow': 'Collection', 'collection.title': 'Limited Pieces for the Discerning Eye.', 'collection.lead': 'Our collection is arranged like an intimate gallery: intentional in count, clean in silhouette, and rich in details that reveal themselves to those who look closely. Each watch arrives not to fill space, but to inhabit your next chapter.',
-  'history.eyebrow': 'History', 'history.title': 'Shaped by Heritage, Tuned to the Present.', 'history.i1t': 'Origin', 'history.i1d': 'It began with a simple encounter between a lover of classic watches and a workbench that became a silent witness to a vision. Amid the pace of the world, there was a desire to create something that moves slowly—but stays much longer.', 'history.i2t': 'Curated taste', 'history.i2d': 'Chroclock’s design direction walks away from visual noise. We speak in monochrome: black, white, and the shades in between. Every line is given room to breathe, as if each watch were placed in a small atelier window visited only by those who know what they are looking for.', 'history.i3t': 'Future boutique', 'history.i3d': 'Chroclock is structured to grow without losing its quiet. We remain anchored to one promise: to offer classic watches that feel like a fragment of poetry resting on your wrist.', 'history.i4t': 'Timeless Legacy', 'history.i4d': 'More than just an instrument for measuring time, it is a bridge between generations. Each piece is crafted to be passed down, carrying stories and dedication that never fade with the ages.',
-  'checkout.eyebrow': 'Your selection', 'checkout.title': 'Cart & checkout', 'checkout.formEyebrow': 'Concierge order', 'checkout.formTitle': 'Share the details—we’ll compose the rest.', 'checkout.formLead': 'Tell us your name and how to reach you. From there, we’ll prepare your chosen watch as if we were arranging a gift you intend to give your future self.',
-  'form.name': 'Full name', 'form.email': 'Email', 'form.phone': 'Phone', 'form.address': 'Delivery notes', 'checkout.submit': 'Pay Now',
-  'footer.copy': 'Classic luxury watches in a quiet, poetic, monochrome language.', 'footer.social': 'Social Media', 'footer.nav': 'Navigation', 'footer.contact': 'Contact'
-};
-
 let currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 let cart = [];
 let isLoggedIn = false;
@@ -35,16 +23,6 @@ const formatCurrency = value => new Intl.NumberFormat('id-ID', {
   currency: 'IDR',
   maximumFractionDigits: 0
 }).format(value);
-
-function applyLanguage() {
-  document.querySelectorAll('[data-i18n]').forEach(node => {
-    const key = node.dataset.i18n;
-    if (copy[key]) node.textContent = copy[key];
-  });
-  document.documentElement.lang = 'en';
-  renderProducts();
-  renderCart();
-}
 
 function renderProducts() {
   const grid = document.getElementById('productGrid');
@@ -455,7 +433,8 @@ document.addEventListener('click', e => {
 
 document.addEventListener('DOMContentLoaded', () => {
   checkLoginStatus();
-  applyLanguage();
+  renderProducts();
+  renderCart();
   initHeroSlider();
   updateThemeUI();
 });
