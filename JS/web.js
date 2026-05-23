@@ -86,7 +86,6 @@ function renderProducts() {
         <p class="product-desc">${(product.desc && typeof product.desc === 'object') ? (product.desc[currentLang] || '') : (product.desc || '')}</p>
         <div class="product-actions">
           <button class="btn btn-primary add-to-cart" data-id="${product.id}">${currentLang === 'id' ? 'Tambah ke cart' : 'Add to cart'}</button>
-          <button class="btn btn-secondary" onclick="openCart()">${currentLang === 'id' ? 'Checkout' : 'Checkout'}</button>
         </div>
       </div>
     </article>
@@ -258,6 +257,7 @@ if (checkoutForm) {
           name: form.get('name'),
           email: form.get('email'),
           phone: form.get('phone'),
+          address: form.get('address'),
           total: total
         })
       });
