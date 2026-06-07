@@ -254,7 +254,11 @@ include 'koneksi.php';
           'tag' => $row['tag'] ?? 'Limited Edition'
       ];
       // Terapkan 3 gambar slider to all products (using Jam 1 as placeholder)
-      $item['images'] = ['../Gambar/Jam1_1.png', '../Gambar/Jam1_2.png', '../Gambar/Jam1_3.png'];
+      if ($row['id_produk'] == 2 || $row['id_produk'] === 'atelier-blanc-02') {
+          $item['images'] = ['../Gambar/Jam2_1.jpg', '../Gambar/Jam2_2.jpg', '../Gambar/Jam2_3.jpg'];
+      } else {
+          $item['images'] = ['../Gambar/Jam1_1.png', '../Gambar/Jam1_2.png', '../Gambar/Jam1_3.png'];
+      }
       
       $productsArray[] = $item;
   }

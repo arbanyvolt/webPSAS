@@ -1,7 +1,7 @@
 if (typeof products === 'undefined') {
   var products = [
     { id: 'atelier-noir-01', name: 'Atelier Noir 01', price: 18500000, edition: '12 pieces', images: ['../Gambar/Jam1_1.png', '../Gambar/Jam1_2.png', '../Gambar/Jam1_3.png'], desc: 'A black-dial dress watch with a calm face, soft steel glow, and a formal presence without excess.' },
-    { id: 'atelier-blanc-02', name: 'Atelier Blanc 02', price: 16200000, edition: '15 pieces', images: ['../Gambar/Jam1_1.png', '../Gambar/Jam1_2.png', '../Gambar/Jam1_3.png'], desc: 'A classic white dial with black strap; simple, lucid, and familiar like an inherited object.' },
+    { id: 'atelier-blanc-02', name: 'Atelier Blanc 02', price: 16200000, edition: '15 pieces', images: ['../Gambar/Jam2_1.jpg', '../Gambar/Jam2_2.jpg', '../Gambar/Jam2_3.jpg'], desc: 'A classic white dial with black strap; simple, lucid, and familiar like an inherited object.' },
     { id: 'atelier-archive-03', name: 'Atelier Archive 03', price: 21900000, edition: '8 pieces', images: ['../Gambar/Jam1_1.png', '../Gambar/Jam1_2.png', '../Gambar/Jam1_3.png'], desc: 'A denser vintage mood with classic numerals and case proportions that feel worthy of long-term collecting.' }
   ];
 }
