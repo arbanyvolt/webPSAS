@@ -221,6 +221,8 @@ if (checkoutForm) {
           email: form.get('email'),
           phone: form.get('phone'),
           address: form.get('address'),
+          latitude: form.get('latitude'),
+          longitude: form.get('longitude'),
           total: total
         })
       });
@@ -335,6 +337,53 @@ if (cartModal) {
 }
 
 // STEPPED CHECKOUT NAVIGATION
+let map = null;
+let marker = null;
+
+function initMap() {
+  if (map) {
+    setTimeout(() => {
+      map.invalidateSize();
+    }, 100);
+    return;
+  }
+
+  const mapDiv = document.getElementById('map');
+  if (!mapDiv) return;
+
+  // Set default coordinates (Jakarta center)
+  const defaultLat = -6.2088;
+  const defaultLng = 106.8456;
+
+  map = L.map('map').setView([defaultLat, defaultLng], 13);
+
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  function setLocation(lat, lng) {
+    const latField = document.getElementById('latitude');
+    const lngField = document.getElementById('longitude');
+    if (latField) latField.value = lat.toFixed(6);
+    if (lngField) lngField.value = lng.toFixed(6);
+
+    if (marker) {
+      marker.setLatLng([lat, lng]);
+    } else {
+      marker = L.marker([lat, lng]).addTo(map)
+        .bindPopup('Delivery location selected')
+        .openPopup();
+    }
+  }
+
+  // Pre-populate with default location
+  setLocation(defaultLat, defaultLng);
+
+  map.on('click', function(e) {
+    setLocation(e.latlng.lat, e.latlng.lng);
+  });
+}
+
 const goToCheckoutBtn = document.getElementById('goToCheckoutBtn');
 if (goToCheckoutBtn) {
   goToCheckoutBtn.addEventListener('click', () => {
@@ -349,6 +398,9 @@ if (goToCheckoutBtn) {
     const formPanel = cartModal.querySelector('.checkout-panel-form');
     if (selectionPanel) selectionPanel.style.display = 'none';
     if (formPanel) formPanel.style.display = 'block';
+    
+    // Initialize/invalidate Leaflet map
+    initMap();
   });
 }
 

@@ -34,6 +34,8 @@ $gross_amount = (int)$input['total'];
 $name = $input['name'];
 $email = $input['email'];
 $address = isset($input['address']) ? mysqli_real_escape_string($conn_midtrans, $input['address']) : '';
+$latitude = isset($input['latitude']) ? mysqli_real_escape_string($conn_midtrans, $input['latitude']) : '';
+$longitude = isset($input['longitude']) ? mysqli_real_escape_string($conn_midtrans, $input['longitude']) : '';
 
 $params = [
     'transaction_details' => [
@@ -52,7 +54,7 @@ try {
     mysqli_query($conn_midtrans, "DELETE FROM orders WHERE status = 'pending' AND created_at < NOW() - INTERVAL 5 MINUTE");
 
     // Simpan data awal ke database dengan status 'pending'
-    $query = "INSERT INTO orders (order_id, user_id, user_email, name, email, address, amount, status) VALUES ('$order_id', '$user_id', '$user_email', '$name', '$email', '$address', '$gross_amount', 'pending')";
+    $query = "INSERT INTO orders (order_id, user_id, user_email, name, email, address, latitude, longitude, amount, status) VALUES ('$order_id', '$user_id', '$user_email', '$name', '$email', '$address', '$latitude', '$longitude', '$gross_amount', 'pending')";
     mysqli_query($conn_midtrans, $query);
 
     $snapToken = \Midtrans\Snap::getSnapToken($params);

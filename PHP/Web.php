@@ -18,6 +18,10 @@ include 'koneksi.php';
 
   <!-- Midtrans Snap -->
   <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="Mid-client-evN0MUz8X2Fx-VhC"></script>
+
+  <!-- Leaflet Map CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
 
 <body>
@@ -215,7 +219,21 @@ include 'koneksi.php';
             <div class="field"><label for="name">Full name</label><input id="name" name="name" required></div>
             <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
             <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" required></div>
-            <div class="field"><label for="address">Delivery notes</label><textarea id="address" name="address" required></textarea></div>
+            <div class="field">
+              <label>Delivery Location (Click on map to set pinpoint)</label>
+              <div id="map" style="height: 250px; width: 100%; border-radius: var(--radius-md); border: 1px solid var(--color-border); z-index: 1; margin-bottom: var(--space-2);"></div>
+            </div>
+            <div class="field" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3);">
+              <div>
+                <label for="latitude">Latitude</label>
+                <input id="latitude" name="latitude" readonly required style="background: var(--color-surface-2); cursor: not-allowed;">
+              </div>
+              <div>
+                <label for="longitude">Longitude</label>
+                <input id="longitude" name="longitude" readonly required style="background: var(--color-surface-2); cursor: not-allowed;">
+              </div>
+            </div>
+            <div class="field"><label for="address">Delivery notes / Address detail</label><textarea id="address" name="address" placeholder="e.g. Apartment, Suite, Floor, or notes for courier" required></textarea></div>
             <button class="btn btn-primary" type="submit">Pay Now</button>
           </form>
         </div>
