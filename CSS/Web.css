@@ -158,4 +158,8 @@ h1{font-size:var(--text-3xl);max-width:10ch}h2{font-size:var(--text-2xl)}h3{font
     padding: 12px;
     border-radius: 50%;
   }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }

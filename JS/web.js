@@ -387,32 +387,6 @@ function initMap() {
           Mencari lokasi...
         `;
       }
-
-<<<<<<< HEAD
-      navigator.geolocation.getCurrentPosition(
-        function(position) {
-          const lat = position.coords.latitude;
-          const lng = position.coords.longitude;
-          setLocation(lat, lng);
-          map.setView([lat, lng], 16);
-          if (gpsBtn) {
-            gpsBtn.disabled = false;
-            gpsBtn.innerHTML = originalText;
-          }
-        },
-        function(error) {
-          console.warn('Geolocation error: ', error.message);
-          if (gpsBtn) {
-            gpsBtn.disabled = false;
-            gpsBtn.innerHTML = originalText;
-          }
-          if (animate) {
-            alert('Gagal mendapatkan lokasi GPS Anda. Pastikan izin lokasi diaktifkan pada browser/device Anda.');
-          }
-        },
-        { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
-      );
-=======
       const options = { enableHighAccuracy: true, timeout: 7000, maximumAge: 0 };
       
       function getPosition(opts) {
@@ -468,7 +442,6 @@ function initMap() {
           alert('Terjadi kesalahan saat mengakses GPS: ' + err.message);
         }
       }
->>>>>>> 10be439 (update maps)
     } else {
       if (animate) {
         alert('Browser Anda tidak mendukung Geolocation (GPS).');
