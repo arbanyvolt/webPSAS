@@ -388,6 +388,7 @@ function initMap() {
         `;
       }
 
+<<<<<<< HEAD
       navigator.geolocation.getCurrentPosition(
         function(position) {
           const lat = position.coords.latitude;
@@ -411,6 +412,63 @@ function initMap() {
         },
         { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
       );
+=======
+      const options = { enableHighAccuracy: true, timeout: 7000, maximumAge: 0 };
+      
+      function getPosition(opts) {
+        navigator.geolocation.getCurrentPosition(
+          function(position) {
+            const lat = position.coords.latitude;
+            const lng = position.coords.longitude;
+            setLocation(lat, lng);
+            map.setView([lat, lng], 16);
+            if (gpsBtn) {
+              gpsBtn.disabled = false;
+              gpsBtn.innerHTML = originalText;
+            }
+          },
+          function(error) {
+            console.warn('Geolocation error: ', error.code, error.message);
+            if (opts.enableHighAccuracy) {
+              console.log('Retrying with high accuracy disabled...');
+              getPosition({ enableHighAccuracy: false, timeout: 5000, maximumAge: 0 });
+            } else {
+              if (gpsBtn) {
+                gpsBtn.disabled = false;
+                gpsBtn.innerHTML = originalText;
+              }
+              if (animate) {
+                let msg = 'Gagal mendapatkan lokasi GPS Anda. ';
+                if (error.code === 1) {
+                  msg += 'Pastikan Anda telah mengizinkan akses lokasi pada browser ini.';
+                } else if (error.code === 2) {
+                  msg += 'Lokasi tidak tersedia saat ini.';
+                } else if (error.code === 3) {
+                  msg += 'Waktu pencarian lokasi habis (Timeout).';
+                } else {
+                  msg += error.message;
+                }
+                alert(msg);
+              }
+            }
+          },
+          opts
+        );
+      }
+
+      try {
+        getPosition(options);
+      } catch (err) {
+        console.error('Geolocation exception: ', err);
+        if (gpsBtn) {
+          gpsBtn.disabled = false;
+          gpsBtn.innerHTML = originalText;
+        }
+        if (animate) {
+          alert('Terjadi kesalahan saat mengakses GPS: ' + err.message);
+        }
+      }
+>>>>>>> 10be439 (update maps)
     } else {
       if (animate) {
         alert('Browser Anda tidak mendukung Geolocation (GPS).');

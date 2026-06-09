@@ -14,7 +14,7 @@ include 'koneksi.php';
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../CSS/Web.css" />
+  <link rel="stylesheet" href="../CSS/Web.css?v=2" />
 
   <!-- Midtrans Snap -->
   <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="Mid-client-evN0MUz8X2Fx-VhC"></script>
@@ -295,7 +295,7 @@ include 'koneksi.php';
     <span>WhatsApp</span>
   </a>
 
-  <script src="../JS/web.js?v=2" defer></script>
+  <script src="../JS/web.js?v=3" defer></script>
 
 </body>
 </html>
