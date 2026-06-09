@@ -220,7 +220,13 @@ include 'koneksi.php';
             <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
             <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" required></div>
             <div class="field">
-              <label>Delivery Location (Click on map to set pinpoint)</label>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-1); gap: var(--space-2);">
+                <label style="margin-bottom: 0;">Delivery Location (Click on map to set pinpoint)</label>
+                <button type="button" id="btn-gps" class="btn btn-secondary" style="min-height: auto; padding: 6px 12px; font-size: var(--text-xs); display: inline-flex; align-items: center; gap: 6px; border-radius: var(--radius-sm);">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Gunakan GPS Saya
+                </button>
+              </div>
               <div id="map" style="height: 250px; width: 100%; border-radius: var(--radius-md); border: 1px solid var(--color-border); z-index: 1; margin-bottom: var(--space-2);"></div>
             </div>
             <div class="field" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3);">

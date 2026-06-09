@@ -376,8 +376,61 @@ function initMap() {
     }
   }
 
+  function locateUser(animate = true) {
+    if (navigator.geolocation) {
+      const gpsBtn = document.getElementById('btn-gps');
+      const originalText = gpsBtn ? gpsBtn.innerHTML : '';
+      if (gpsBtn) {
+        gpsBtn.disabled = true;
+        gpsBtn.innerHTML = `
+          <svg class="spinner" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation: spin 1s linear infinite;"><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line></svg>
+          Mencari lokasi...
+        `;
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        function(position) {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+          setLocation(lat, lng);
+          map.setView([lat, lng], 16);
+          if (gpsBtn) {
+            gpsBtn.disabled = false;
+            gpsBtn.innerHTML = originalText;
+          }
+        },
+        function(error) {
+          console.warn('Geolocation error: ', error.message);
+          if (gpsBtn) {
+            gpsBtn.disabled = false;
+            gpsBtn.innerHTML = originalText;
+          }
+          if (animate) {
+            alert('Gagal mendapatkan lokasi GPS Anda. Pastikan izin lokasi diaktifkan pada browser/device Anda.');
+          }
+        },
+        { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
+      );
+    } else {
+      if (animate) {
+        alert('Browser Anda tidak mendukung Geolocation (GPS).');
+      }
+    }
+  }
+
   // Pre-populate with default location
   setLocation(defaultLat, defaultLng);
+
+  // Auto-locate user on first load (no alert on error)
+  locateUser(false);
+
+  // Bind GPS button click
+  const gpsBtn = document.getElementById('btn-gps');
+  if (gpsBtn) {
+    gpsBtn.addEventListener('click', function() {
+      locateUser(true);
+    });
+  }
 
   map.on('click', function(e) {
     setLocation(e.latlng.lat, e.latlng.lng);
